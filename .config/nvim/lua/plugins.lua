@@ -18,7 +18,9 @@ return require('packer').startup(function()
     use 'nvim-pack/nvim-spectre'
     use 'DingDean/wgsl.vim'
     use 'alaviss/nim.nvim'
-    use 'neovim/nvim-lspconfig'
+    use { 'neovim/nvim-lspconfig',
+	tag = 'v2.5.0'
+    }
     use { 'ray-x/lsp_signature.nvim', commit = "1d96fac72eb6d74abd5b4d7883a01f58aeb4f87e" }
     use 'hrsh7th/cmp-nvim-lsp'
     use 'hrsh7th/cmp-buffer'
@@ -26,10 +28,8 @@ return require('packer').startup(function()
     use 'hrsh7th/cmp-cmdline'
     use 'hrsh7th/nvim-cmp'
     use 'hrsh7th/vim-vsnip'
-    use 'SirVer/ultisnips'
-    use 'quangnguyen30192/cmp-nvim-ultisnips'
     use 'zefei/vim-colortuner'
-    use { 'nvim-treesitter/nvim-treesitter', tag = 'v0.8.1' }
+    use 'nvim-treesitter/nvim-treesitter'
     use 'sbdchd/neoformat'
     use {
       'nvim-lualine/lualine.nvim',

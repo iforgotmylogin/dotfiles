@@ -30,7 +30,9 @@ local on_attach = function(client, bufnr)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', ',f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
 end
 
-require("lspconfig").nimls.setup{
+local lspconfig = require('lspconfig')
+
+lspconfig.nimls.setup{
     cmd                 = {"nimlsp"},
     filetypes           = {"nim"},
     single_file_support = true
@@ -41,8 +43,7 @@ capabilities.textDocument.completion.completionItem.snippetSupport = true
 capabilities.textDocument.completion.completionItem.resolveSupport = {
   properties = { "documentation", "detail", "additionalTextEdits" },
 }
-
-require('lspconfig').clangd.setup{
+lspconfig.clangd.setup{
   on_attach = on_attach,
   cmd = {
     "/opt/homebrew/opt/llvm/bin/clangd",
@@ -58,7 +59,7 @@ require('lspconfig').clangd.setup{
     "--completion-style=detailed"
   },
   filetypes = {"c", "cpp", "objc", "objcpp"},
-  root_dir = require('lspconfig').util.root_pattern("src"),
+  root_dir = require('lspconfig').util.root_pattern("src", "compile_commands.jso", ".git") or vim.loop.cwd,
   init_option = { fallbackFlags = {  "-std=c++2a"  } },
   capabilities = capabilities
 }

@@ -74,11 +74,14 @@ require('lualine').setup{
 }
 
 -- nvim-treesitter
-require('nvim-treesitter.configs').setup {
-  highlight = {
-    enable = true,
-  },
-}
+pcall(function()
+  require('nvim-treesitter.configs').setup {
+    highlight = {
+      enable = true,
+    },
+  }
+end)
+
 
 require('nvim-autopairs').setup {}
 
@@ -106,3 +109,6 @@ dap.configurations.cpp = {
 
 -- same config for C
 dap.configurations.c = dap.configurations.cpp
+
+-- enable python
+vim.g.loaded_python3_provider = 0

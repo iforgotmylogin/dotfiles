@@ -1,8 +1,8 @@
 -- Setup nvim-cmp.
 local cmp = require'cmp'
 
-require("cmp_nvim_ultisnips").setup{}
-local cmp_ultisnips_mappings = require("cmp_nvim_ultisnips.mappings")
+-- require("cmp_nvim_ultisnips").setup{}
+-- local cmp_ultisnips_mappings = require("cmp_nvim_ultisnips.mappings")
 
 cmp.setup({
     snippet = {
@@ -27,7 +27,7 @@ cmp.setup({
         { name = 'nvim_lsp' },
         -- { name = 'vsnip' }, -- For vsnip users.
         -- { name = 'luasnip' }, -- For luasnip users.
-        { name = 'ultisnips' }, -- For ultisnips users.
+        -- { name = 'ultisnips' }, -- For ultisnips users.
         -- { name = 'snippy' }, -- For snippy users.
       }, {
         { name = 'buffer' },
