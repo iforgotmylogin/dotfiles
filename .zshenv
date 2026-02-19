@@ -1,7 +1,7 @@
 export SHELL_SESSIONS_DISABLE=1
 
 # history settings
-export HISTFILE="/Users/jdh/.config/zsh/.zsh_history"
+export HISTFILE="/Users/benlogan/.config/zsh/.zsh_history"
 HISTSIZE=10000
 SAVEHIST=10000
 setopt appendhistory

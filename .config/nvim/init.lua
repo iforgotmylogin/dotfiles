@@ -76,6 +76,7 @@ require('lualine').setup{
 -- nvim-treesitter
 pcall(function()
   require('nvim-treesitter.configs').setup {
+    ensure_installed = { "c", "cpp", "python", "go", "rust", "lua" },
     highlight = {
       enable = true,
     },
@@ -89,7 +90,7 @@ require('nvim-autopairs').setup {}
 local dap = require('dap')
 dap.adapters.lldb = {
   type = 'executable',
-  command = 'lldb-vscode',
+  command = 'lldb-dap',
   name = 'lldb'
 }
 
@@ -111,4 +112,4 @@ dap.configurations.cpp = {
 dap.configurations.c = dap.configurations.cpp
 
 -- enable python
-vim.g.loaded_python3_provider = 0
+vim.g.loaded_python3_provider = 1

@@ -59,7 +59,7 @@ lspconfig.clangd.setup{
     "--completion-style=detailed"
   },
   filetypes = {"c", "cpp", "objc", "objcpp"},
-  root_dir = require('lspconfig').util.root_pattern("src", "compile_commands.jso", ".git") or vim.loop.cwd,
+  root_dir = require('lspconfig').util.root_pattern("src", "compile_commands.json", ".git") or vim.loop.cwd,
   init_option = { fallbackFlags = {  "-std=c++2a"  } },
   capabilities = capabilities
 }
@@ -74,6 +74,21 @@ require('lspconfig').zls.setup {
 }
 
 require('lspconfig').pyright.setup {
+  on_attach = on_attach,
+  capabilities = capabilities
+}
+
+require('lspconfig').gopls.setup {
+  on_attach = on_attach,
+  capabilities = capabilities
+}
+
+require('lspconfig').rust_analyzer.setup {
+  on_attach = on_attach,
+  capabilities = capabilities
+}
+
+require('lspconfig').lua_ls.setup {
   on_attach = on_attach,
   capabilities = capabilities
 }
