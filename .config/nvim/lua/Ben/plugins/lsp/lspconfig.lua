@@ -43,7 +43,10 @@ return {
                 vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, opts)
 
                 opts.desc = "Show documentation for what is under cursor"
-                vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
+                vim.keymap.set("n", "K", function()
+                    -- looked up at press time so noice's hover override is used once it has loaded
+                    vim.lsp.buf.hover({ border = "rounded" })
+                end, opts)
 
                 opts.desc = "Restart LSP"
                 vim.keymap.set("n", "<leader>rs", ":LspRestart<CR>", opts)

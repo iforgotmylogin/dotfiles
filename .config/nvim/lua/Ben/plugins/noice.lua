@@ -65,6 +65,9 @@ return {
                         auto_open = { enabled = false }, -- disable auto signature help on insert mode
                     },
 				},
+                presets = {
+                    lsp_doc_border = true, -- border around hover (K) and signature help
+                },
                 routes = {
                     {
                         filter = {

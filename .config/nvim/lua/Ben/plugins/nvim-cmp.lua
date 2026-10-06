@@ -229,6 +229,7 @@ return {
                 completeopt = "menu,menuone,noinsert",
             },
             window = {
+                documentation = cmp.config.window.bordered({ border = "rounded" }),
                 -- documentation = {
                 --     border = {'╭', '─', '╮', '│', '╯', '─', '╰', '│'},
                 -- },

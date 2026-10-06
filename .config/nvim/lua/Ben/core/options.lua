@@ -39,3 +39,10 @@ vim.opt.hlsearch = true
 vim.opt.mouse = "a"
 vim.g.editorconfig = true
 
+
+-- bgfx shaders (.sc) are GLSL-like; without this they are detected as Scala
+vim.filetype.add({
+    pattern = {
+        [".*/shaders/.*%.sc"] = "glsl",
+    },
+})

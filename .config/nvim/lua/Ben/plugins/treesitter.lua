@@ -42,6 +42,7 @@ return {
                     "vimdoc",
                     "c",
 					"cpp",
+					"glsl",
 					"go",
                     "java",
                     "rust",
