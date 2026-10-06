@@ -3,7 +3,7 @@ export PATH="/opt/homebrew/opt/libarchive/bin:$PATH"
 export LD_LIBRARY_PATH="/opt/homebrew/opt/llvm/lib:$LD_LIBRARY_PATH"
 export PATH="/opt/ClangBuildAnalyzer/:$PATH"
 
-eval "$(pyenv init --path)"
+command -v pyenv &> /dev/null && eval "$(pyenv init --path)"
 
 # match terminal
 export BAT_THEME=gruvbox-dark
@@ -24,7 +24,7 @@ alias gck="git checkout"
 # homebrew in path
 eval $(/opt/homebrew/bin/brew shellenv)
 
-if [ -z "$TMUX" ]; then
+if [ -z "$TMUX" ] && command -v tmux &> /dev/null; then
   exec arch -arm64 tmux
 fi
 
@@ -36,9 +36,12 @@ compinit -d ~/.config/zsh/.zcompdump
 
 # Setup fzf
 # ---------
-if [[ ! "$PATH" == */usr/local/opt/fzf/bin* ]]; then
-  export PATH="${PATH:+${PATH}:}/usr/local/opt/fzf/bin"
-fi
+for fzf_bin in /usr/local/opt/fzf/bin /opt/homebrew/opt/fzf/bin; do
+  if [[ -d "$fzf_bin" && ! "$PATH" == *"$fzf_bin"* ]]; then
+    export PATH="${PATH:+${PATH}:}$fzf_bin"
+  fi
+done
+unset fzf_bin
 
 # Auto-completion
 # ---------------
@@ -52,7 +55,7 @@ fi
 # END FZF CONFIG
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/benlogan/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
