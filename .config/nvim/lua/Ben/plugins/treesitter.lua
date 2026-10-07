@@ -7,56 +7,36 @@ return {
             -- import nvim-treesitter plugin
             local treesitter = require("nvim-treesitter")
 
-            -- configure treesitter
-            treesitter.setup({ -- enable syntax highlighting
-                highlight = {
-                    enable = true,
-                    additional_vim_regex_highlighting = false,
-                },
-                -- enable indentation
-                indent = { enable = true },
-
-                -- ensure these languages parsers are installed
-                ensure_installed = {
-                    "json",
-                    "javascript",
-                    "typescript",
-                    "tsx",
-                    "go",
-                    "yaml",
-                    "html",
-                    "css",
-                    "python",
-                    "http",
-                    "prisma",
-                    "markdown",
-                    "markdown_inline",
-                    "svelte",
-                    "graphql",
-                    "bash",
-                    "lua",
-                    "vim",
-                    "dockerfile",
-                    "gitignore",
-                    "query",
-                    "vimdoc",
-                    "c",
-					"cpp",
-					"glsl",
-					"go",
-                    "java",
-                    "rust",
-                    "ron",
-                },
-                incremental_selection = {
-                    enable = true,
-                    keymaps = {
-                        init_selection = "<C-space>",
-                        node_incremental = "<C-space>",
-                        -- scope_incremental = false,
-                        node_decremental = "<C-backspace>",
-                    },
-                },
+            -- install parsers (main branch: setup() no longer takes these options)
+            treesitter.install({
+                "json",
+                "javascript",
+                "typescript",
+                "tsx",
+                "go",
+                "yaml",
+                "html",
+                "css",
+                "python",
+                "http",
+                "prisma",
+                "markdown",
+                "markdown_inline",
+                "svelte",
+                "graphql",
+                "bash",
+                "lua",
+                "vim",
+                "dockerfile",
+                "gitignore",
+                "query",
+                "vimdoc",
+                "c",
+                "cpp",
+                "glsl",
+                "java",
+                "rust",
+                "ron",
             })
             -- force start treesitter for all filetypes
             vim.api.nvim_create_autocmd('FileType', {

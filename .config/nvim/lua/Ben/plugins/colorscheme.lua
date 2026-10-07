@@ -90,14 +90,16 @@ return {
                 contrast = "",  -- can be "hard", "soft" or empty string
                 palette_overrides = {},
                 overrides = {
-					NormalFloat = { bg = "#282828" },
-					["@lsp.type.macro.cpp"] = {fg = "#b16286"},
+					NormalFloat = {bg = "#282828" },
+					["@lsp.type.macro.cpp"] = {fg = "#d3869b"},
 					["@lsp.type.namespace.cpp"] = { fg = "#8ec07c" },
 					["@lsp.typemod.namespace.defaultLibrary.cpp"] = { fg = "#8ec07c" },
 					["@lsp.typemod.namespace.globalScope.cpp"] = { fg = "#8ec07c" },
-					["@lsp.type.variable.cpp"] = { fg = "#83a598" },       -- gruvbox blue
+					["@lsp.type.variable.cpp"] = { fg = "#E6E8F0" },
 					["@lsp.type.parameter.cpp"] = { fg = "#83a598" },
-					["@lsp.typemod.variable.local.cpp"] = { fg = "#83a598" },
+					["@lsp.typemod.variable.local.cpp"] = { fg = "#83a598" }, --gruvbox blue 
+					["@keyword.import.cpp"] = { fg = "#80baba" },
+					["@keyword.directive.cpp"] = { fg = "#fc4d53"},
 					["@variable"] = { fg = "#E6E8F0"},
 					["@variable.builtin"] = { fg = "#E6E8F0"},
 					["@variable.parameter"] = { fg = "#E6E8F0"},
@@ -167,7 +169,7 @@ return {
             })
         end
     },
-    -- NOTE: neosolarized 
+    -- NOTE: neosolarized
     {
         "craftzdog/solarized-osaka.nvim",
         lazy = false,
@@ -356,7 +358,7 @@ return {
                     mini = true,
                     dap = true,
                     dap_ui = true,
-                    -- terminal = false, 
+                    -- terminal = false,
                 },
             })
 

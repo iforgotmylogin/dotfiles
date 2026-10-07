@@ -24,10 +24,6 @@ alias gck="git checkout"
 # homebrew in path
 eval $(/opt/homebrew/bin/brew shellenv)
 
-if [ -z "$TMUX" ]; then
-  exec arch -arm64 tmux
-fi
-
 # move annoying .zcompdump files into a better hidden directory
 autoload -Uz compinit
 compinit -d ~/.config/zsh/.zcompdump
